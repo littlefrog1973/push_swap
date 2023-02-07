@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:06:19 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 08:28:18 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/07 08:57:02 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	is_overflow(char **a)
 			continue ;
 		}
 		if (n_digit(ft_atoi(a[i])) != (ft_strlen(a[i]) - n_spc(a[i])
-				n_pls(a[i])))
+				- n_pls(a[i])))
 			return (1);
 		if (ft_strlen(a[i]) - n_spc(a[i]) - n_pls(a[i]) - n_mns(a[i]) > 10)
 			return (1);
@@ -114,16 +114,12 @@ int	is_overflow(char **a)
 
 int	check_argv(int argc, char **argv)
 {
-	int	i;
-	int	*int_vector;
-
 	if (argc == 2 && is_all_digit(argv))
 		exit(1);
 	else if (argc == 2 && !is_all_digit(argv))
 		err_exit(1);
 	if (!is_all_digit(argv))
 	{
-		ft_printf("exit from is_all_digit\n");
 		err_exit(1);
 	}
 	if (is_overflow(argv))
