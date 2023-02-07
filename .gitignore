@@ -54,3 +54,4 @@ dkms.conf
 # Push_swap
 checker_linux
 push_swap
+push_swap_debug

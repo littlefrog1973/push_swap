@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 08:09:40 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:11:51 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	n_spc(char *str);
 int	n_pls(char *str);
 int	n_mns(char *str);
 int	is_all_digit(char **a);
+int	is_overflow(char **a);
 
 #endif

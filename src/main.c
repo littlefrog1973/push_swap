@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:34:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 08:28:46 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:03:55 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	main(int argc, char *argv[])
 {
-	if (argc > 2)
-		check_argv(argc, argv);
-	else if (argc == 2 && is_all_digit(argv))
-		return (1);
-	else if (argc == 1)
+	if (argc == 1)
 		exit(1);
+	if (check_argv(argc, argv))
+		ft_printf("Data is OK for sorting\n");
 	else
-		err_exit(1);
+		ft_printf("Data is OK but sorted\n");
 	return (0);
 }
 /*	ft_printf("INT_MIN - 2 = %d\n", INT_MIN - 2 * (INT_MIN));

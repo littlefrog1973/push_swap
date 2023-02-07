@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:06:19 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 08:57:02 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:04:54 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,15 @@ int	is_overflow(char **a)
 
 int	check_argv(int argc, char **argv)
 {
-	if (argc == 2 && is_all_digit(argv))
+	if (argc == 2 && is_all_digit(argv) && !is_overflow(argv))
 		exit(1);
-	else if (argc == 2 && !is_all_digit(argv))
+	else if (argc == 2 && (!is_all_digit(argv) || is_overflow(argv)))
 		err_exit(1);
+	if (!is_all_digit(argv) || is_overflow(argv) || is_duplicate(argv))
+		err_exit(1);
+	if (is_sort_char(argv))
+		return (0);
+/*
 	if (!is_all_digit(argv))
 	{
 		err_exit(1);
@@ -134,5 +139,6 @@ int	check_argv(int argc, char **argv)
 	{
 		err_exit(1);
 	}
+*/
 	return (1);
 }
