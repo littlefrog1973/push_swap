@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:34:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 11:03:55 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 10:57:57 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 
 int	main(int argc, char *argv[])
 {
+	char	*rec;
+	int		i;
+
+	i = 0;
 	if (argc == 1)
 		exit(1);
 	if (check_argv(argc, argv))
-		ft_printf("Data is OK for sorting\n");
+		rec = sort(argc, argv);
+//		ft_printf("Data is OK for sorting\n");
 	else
 		ft_printf("Data is OK but sorted\n");
+	if (!rec)
+		err_exit(2);
+	while(rec[i])
+		ft_printf("%s\n", rec[i++]);
+	free(rec);
 	return (0);
 }
+
 /*	ft_printf("INT_MIN - 2 = %d\n", INT_MIN - 2 * (INT_MIN));
 	ft_printf("6442450941 = %d\n", ft_atoi("6442450941"));
 	ft_printf("INT_MAX = %d\n", atoi("2147483647"));

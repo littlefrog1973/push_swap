@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 10:11:51 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 09:56:49 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,54 @@ typedef struct s_stack
 	int	size;
 }	t_stack;
 
+# define SA 'a'
+# define SB 'b'
+# define SS 'c'
+# define PA 'd'
+# define PB 'e'
+# define RA 'f'
+# define RB 'g'
+# define RR 'h'
+# define RRA 'i'
+# define RRB 'j'
+# define RRR 'k'
+
+/*check_argv.c*/
 int	check_argv(int argc, char **argv);
+int	is_all_digit(char **a);
+int	is_overflow(char **a);
+int	is_sort_char(char **argv);
+
+/*utils.c*/
 void err_exit(int err_no);
 size_t	n_digit(int number);
 int	n_spc(char *str);
 int	n_pls(char *str);
 int	n_mns(char *str);
-int	is_all_digit(char **a);
-int	is_overflow(char **a);
 
+/*sort.c*/
+int	sort(int argc, char **argv);
+
+/*sort_utils.c*/
+int	init_stack(int argc, char **argv, t_stack *a, t_stack *b);
+int	s1(t_stack *a);
+char	*init_record(int argc);
+void	free_stack(t_stack *a, t_stack *b);
+
+/*stack1.c*/
+int	sa(t_stack *a, char *rec);
+int	sb(t_stack *b, char *rec);
+int	ss(t_stack *a, t_stack *b, char *rec);
+int	pa(t_stack *a, t_stack *b, char *rec);
+int	pb(t_stack *a, t_stack *b, char *rec);
+
+/*stack2.c*/
+int	ra(t_stack *a, char *rec);
+int	rb(t_stack *a, char *rec);
+int	rr(t_stack *a, t_stack *b, char *rec);
+
+/*stack3.c*/
+int	rra(t_stack *a, char *rec);
+int	rrb(t_stack *a, char *rec);
+int	rrr(t_stack *a, t_stack *b, char *rec);
 #endif

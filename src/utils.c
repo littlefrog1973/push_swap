@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:16:12 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 08:08:44 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:24:44 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ void	err_exit(int err_no)
 {
 	if (err_no == 1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
+		exit (1);
+	}
+	if (err_no == 2)
+	{
+		write(2, "Error\n: Out of memory\n", 22);
 		exit (1);
 	}
 }
