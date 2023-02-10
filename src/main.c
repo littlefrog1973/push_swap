@@ -6,30 +6,44 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:34:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 10:57:57 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:53:19 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	print_out(char *rec)
+{
+	int		i;
+	char	tag[11][4];
+
+	ft_memcpy(tag,
+		"sa\0\0sb\0\0ss\0\0pa\0\0pb\0\0ra\0\0rb\0\0rr\0\0rra\0rrb\0rrr\0", 44);
+	i = 0;
+	while (rec[i])
+	{
+		ft_printf("%s\n", tag[rec[i] - SA]);
+		i++;
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	char	*rec;
-	int		i;
 
-	i = 0;
 	if (argc == 1)
 		exit(1);
 	if (check_argv(argc, argv))
-		rec = sort(argc, argv);
-//		ft_printf("Data is OK for sorting\n");
+		rec = sorting(argc, argv);
 	else
+	{
 		ft_printf("Data is OK but sorted\n");
-	if (!rec)
-		err_exit(2);
-	while(rec[i])
-		ft_printf("%s\n", rec[i++]);
-	free(rec);
+		return (0);
+	}
+	if (*rec)
+		print_out(rec);
+	if (rec && *rec)
+		free(rec);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:38:54 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/08 16:30:19 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:13:01 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	sb(t_stack *b, char *rec)
 		return (1);
 	}
 }
+
 int	ss(t_stack *a, t_stack *b, char *rec)
 {
 	int	dummy;

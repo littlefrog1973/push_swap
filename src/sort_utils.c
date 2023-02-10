@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:09:06 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 10:52:39 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:12:38 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ int	init_stack(int argc, char **argv, t_stack *a, t_stack *b)
 		i++;
 	}
 	(*a).size = argc - 1;
-
 	(*b).stack = ft_calloc(argc - 1, sizeof(int));
 	if (!(*b).stack)
 	{
 		free((*a).stack);
 		err_exit(2);
 	}
-	(*b).size = argc - 1;
+	(*b).size = 0;
 	return (1);
 }
 
@@ -61,14 +60,13 @@ char	*init_record(int n)
 	rec = (char *) ft_calloc((size_t) n * log_base2(n) * 3, sizeof(char));
 	if (!rec)
 		return (NULL);
-	return(rec);
+	return (rec);
 }
 
 void	free_stack(t_stack *a, t_stack *b)
 {
 	free((*a).stack);
 	free((*b).stack);
-//	err_exit(2);
 }
 /*
 int	main(void)

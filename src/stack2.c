@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:31:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 10:02:03 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:28:27 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ra(t_stack *a, char *rec)
 
 	i = (int) ft_strlen(rec);
 	rec[i] = RA;
-	if ((*a).size == 1)
+	if ((*a).size <= 1)
 		return (0);
 	else
 	{
@@ -42,7 +42,7 @@ int	rb(t_stack *a, char *rec)
 
 	i = (int) ft_strlen(rec);
 	rec[i] = RB;
-	if ((*a).size == 1)
+	if ((*a).size <= 1)
 		return (0);
 	else
 	{
@@ -66,15 +66,15 @@ int	rr(t_stack *a, t_stack *b, char *rec)
 	ft_bzero(rec_dummy, 2);
 	i = (int) ft_strlen(rec);
 	rec[i] = RR;
+	if ((*a).size <= 1 && (*b).size <= 1)
+		return (0);
 	if ((*a).size > 1)
 		ra(a, rec_dummy);
 	if ((*b).size > 1)
 		rb(b, rec_dummy);
-	if ((*a).size == 1 && (*b).size == 1)
-		return (0);
 	return (1);
 }
-
+/*
 int	main(void)
 {
 	int		aa[] = {1, 2, 3, 0};
@@ -107,3 +107,4 @@ int	main(void)
 	printf("cc[3] = %c\n", cc[3]);
 	return (0);
 }
+*/

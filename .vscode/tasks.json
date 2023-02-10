@@ -7,8 +7,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "./src/*.c",
-                "./libft/libft.a",
+                "${workspaceFolder}/src/*.c",
+                "${workspaceFolder}/libft/libft.a",
                 "-o",
                 "${workspaceFolder}/push_swap_debug"
             ],

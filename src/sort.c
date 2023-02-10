@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 12:21:35 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/10 01:07:36 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 	else
 	{
 		if ((*a).size == 3)
-			sort_three(a, b, rec);
+			sort_three(a, rec);
 		else if ((*a).size == 4)
 			sort_four(a, b, rec);
 		else
@@ -56,30 +56,29 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 
 int	sort_hi_n(t_stack *a, t_stack *b, char *rec)
 {
+	rec = rec + 0;
 	if (is_sort(a) == 1 && (*b).size == 0)
 		return (1);
-	else
-	{
-
-	}
+	return (1);
 }
-char	*sort(int argc, char **argv)
+
+char	*sorting(int argc, char **argv)
 {
 	t_stack	stk_a;
 	t_stack	stk_b;
 	char	*rec;
 
 	if (is_sort_char(argv))
-		return (0);
+		return ("");
 	else
 	{
 		if (argc == 3)
 		{
 			ft_printf("sa\n");
-			return (1);
+			return ("");
 		}
 		if (init_stack(argc, argv, &stk_a, &stk_b))
-			rec = init_record(argc);
+			rec = init_record(argc - 1);
 		if (!rec)
 			free_stack(&stk_a, &stk_b);
 		if (argc < 5)

@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:30:14 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 10:04:38 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:14:26 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	rra(t_stack *a, char *rec)
 		return (1);
 	}
 }
+
 int	rrb(t_stack *a, char *rec)
 {
 	int	dummy;
@@ -73,8 +74,7 @@ int	rrr(t_stack *a, t_stack *b, char *rec)
 		return (0);
 	return (1);
 }
-
-
+/*
 int	main(void)
 {
 	int		aa[] = {1, 2, 3, 0};
@@ -107,5 +107,4 @@ int	main(void)
 	printf("cc[3] = %c\n", cc[3]);
 	return (0);
 }
-
-
+*/

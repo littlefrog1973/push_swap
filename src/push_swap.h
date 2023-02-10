@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 09:56:49 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:34:15 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,10 @@ int	n_pls(char *str);
 int	n_mns(char *str);
 
 /*sort.c*/
-int	sort(int argc, char **argv);
+char	*sorting(int argc, char **argv);
+int	is_sort(t_stack *a);
+int	sort_low_n(t_stack *a, t_stack *b, char *rec);
+int	sort_hi_n(t_stack *a, t_stack *b, char *rec);
 
 /*sort_utils.c*/
 int	init_stack(int argc, char **argv, t_stack *a, t_stack *b);
@@ -76,4 +79,9 @@ int	rr(t_stack *a, t_stack *b, char *rec);
 int	rra(t_stack *a, char *rec);
 int	rrb(t_stack *a, char *rec);
 int	rrr(t_stack *a, t_stack *b, char *rec);
+
+/*sort_algo.c*/
+int	sort_three(t_stack *a, char *rec);
+int	sort_four(t_stack *a, t_stack *b, char *rec);
+
 #endif
