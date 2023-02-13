@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 16:34:15 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:40:27 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,14 @@ int	sort_hi_n(t_stack *a, t_stack *b, char *rec);
 
 /*sort_utils.c*/
 int	init_stack(int argc, char **argv, t_stack *a, t_stack *b);
-int	s1(t_stack *a);
 char	*init_record(int argc);
 void	free_stack(t_stack *a, t_stack *b);
+int		find_min(t_stack *a);
+int		find_min(t_stack *b);
+
+
+/*sort_utils2.c*/
+int	log_base2(int n);
 
 /*stack1.c*/
 int	sa(t_stack *a, char *rec);
@@ -81,7 +86,13 @@ int	rrb(t_stack *a, char *rec);
 int	rrr(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo.c*/
+int	sort_two(t_stack *a, char *rec);
 int	sort_three(t_stack *a, char *rec);
 int	sort_four(t_stack *a, t_stack *b, char *rec);
+
+/*sort_algo2.c*/
+int	is_sort_circle(t_stack *a);
+int	swap_circle(t_stack *a, char *rec);
+int	move_to_top(t_stack *a, int i, char *rec);
 
 #endif

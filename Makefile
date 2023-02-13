@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/10 00:39:37 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/11 06:12:37 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,24 +20,28 @@ SRCDIR = ./src/
 OBJDIR = ./obj/
 DEPS = push_swap.h
 
-SRC = check_argv.c utils.c sort.c sort_utils.c stack1.c stack2.c \
-      stack3.c sort_algo.c main.c
+SRC = check_argv.c utils.c sort.c sort_utils.c sort_utils2.c stack1.c stack2.c \
+      stack3.c sort_algo.c sort_algo2.c main.c
 
+OBJ := $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR), $(SRC))
 DEPS := $(addprefix $(SRCDIR), $(DEPS))
-OBJ = $(SRC:.c=.o)
 
 NAME = push_swap
 
 all : $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ)
 	cd $(LIBDIR) && make
-	$(CC) $(CFLAGS) $(DEPS) $(SRC) $(LIBDIR)/$(LIBOBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(DEPS) $(OBJ) $(LIBDIR)/$(LIBOBJ) -o $(NAME)
+#	$(CC) $(CFLAGS) $(DEPS) $(SRC) $(LIBDIR)/$(LIBOBJ) -o $(NAME)
 #	$(CC) $(CFLAGS) $(addprefix $(SRCDIR), $(SRC)) $(addprefix $(SRCDIR), $(DEPS)) $(LIBDIR)/$(LIBDIR).a -o $(NAME)
 
+$(OBJ): $(SRC)
+	$(CC) -c -g $(CFLAGS) $(DEPS) $(SRC)
+
 clean :
-	rm -f $(SRCDIR)/*.o
+	rm -f *.o
 	make -C $(LIBDIR) clean
 
 fclean : clean

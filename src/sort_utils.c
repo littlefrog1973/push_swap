@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:09:06 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 14:12:38 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/13 08:43:25 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,11 @@ int	init_stack(int argc, char **argv, t_stack *a, t_stack *b)
 	return (1);
 }
 
-int	log_base2(int n)
-{
-	int	dummy;
-	int	i;
-
-	i = 0;
-	dummy = 1;
-	if (n == 1)
-		return (0);
-	while (dummy < n)
-	{
-		dummy = dummy << 1;
-		i++;
-	}
-	return (i);
-}
-
 char	*init_record(int n)
 {
 	char	*rec;
 
-	rec = (char *) ft_calloc((size_t) n * log_base2(n) * 3, sizeof(char));
+	rec = (char *) ft_calloc((size_t) n * log_base2(n) * 10, sizeof(char));
 	if (!rec)
 		return (NULL);
 	return (rec);
@@ -68,9 +51,58 @@ void	free_stack(t_stack *a, t_stack *b)
 	free((*a).stack);
 	free((*b).stack);
 }
+
+int	find_max(t_stack *a)
+{
+	int	i;
+	int	dummy;
+	int	pos;
+
+	i = 0;
+	dummy = INT_MIN;
+	pos = 0;
+	while (i < (*a).size)
+	{
+		if (dummy <= (*a).stack[i])
+		{
+			dummy = (*a).stack[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
+}
+
+int	find_min(t_stack *a)
+{
+	int	i;
+	int	dummy;
+	int	pos;
+
+	i = 0;
+	dummy = INT_MAX;
+	pos = 0;
+	while (i < (*a).size)
+	{
+		if (dummy >= (*a).stack[i])
+		{
+			dummy = (*a).stack[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
+}
 /*
 int	main(void)
 {
-	ft_printf("log2(8) = %d\n", log_base2(8));
+	t_stack	a;
+	int		vec[] = {INT_MIN + 1, INT_MIN + 3, INT_MIN+5, INT_MIN};
+
+	a.stack = vec;
+	a.size = 4;
+	ft_printf("offset of max value = %d\n", find_max(&a));
+	ft_printf("offset of max value = %d\n", find_min(&a));
+	return (0);
 }
 */

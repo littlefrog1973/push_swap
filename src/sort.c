@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/10 01:07:36 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/12 07:59:53 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 		return (1);
 	else
 	{
+		if ((*a).size == 2)
+			sort_two(a, rec);
 		if ((*a).size == 3)
 			sort_three(a, rec);
-		else if ((*a).size == 4)
+		if ((*a).size == 4)
 			sort_four(a, b, rec);
 		else
 			return (0);
@@ -56,9 +58,20 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 
 int	sort_hi_n(t_stack *a, t_stack *b, char *rec)
 {
-	rec = rec + 0;
+	int	i;
+
 	if (is_sort(a) == 1 && (*b).size == 0)
 		return (1);
+	else
+	{
+		i = 0;
+		while (!(is_sort_circle(a) == 1 && (*b).size == 0) && i < 15000)
+		{
+			swap_circle(a, rec);
+			i++;
+		}
+	}
+	move_to_top(a, find_min(a), rec);
 	return (1);
 }
 
@@ -68,24 +81,14 @@ char	*sorting(int argc, char **argv)
 	t_stack	stk_b;
 	char	*rec;
 
-	if (is_sort_char(argv))
-		return ("");
+	if (init_stack(argc, argv, &stk_a, &stk_b))
+		rec = init_record(argc - 1);
+	if (!rec)
+		free_stack(&stk_a, &stk_b);
+	if (argc < 5)
+		sort_low_n(&stk_a, &stk_b, rec);
 	else
-	{
-		if (argc == 3)
-		{
-			ft_printf("sa\n");
-			return ("");
-		}
-		if (init_stack(argc, argv, &stk_a, &stk_b))
-			rec = init_record(argc - 1);
-		if (!rec)
-			free_stack(&stk_a, &stk_b);
-		if (argc < 5)
-			sort_low_n(&stk_a, &stk_b, rec);
-		else
-			sort_hi_n(&stk_a, &stk_b, rec);
-	}
+		sort_hi_n(&stk_a, &stk_b, rec);
 	free_stack(&stk_a, &stk_b);
 	return (rec);
 }
