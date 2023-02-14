@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/12 07:59:53 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 09:24:43 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,12 @@ char	*sorting(int argc, char **argv)
 	t_stack	stk_b;
 	char	*rec;
 
+	rec = NULL;
 	if (init_stack(argc, argv, &stk_a, &stk_b))
 		rec = init_record(argc - 1);
 	if (!rec)
 		free_stack(&stk_a, &stk_b);
-	if (argc < 5)
+	if (argc < 6)
 		sort_low_n(&stk_a, &stk_b, rec);
 	else
 		sort_hi_n(&stk_a, &stk_b, rec);

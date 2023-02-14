@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:16:12 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 14:24:44 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 08:13:08 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	n_pls(char *str)
 	i = 0;
 	while (!ft_isdigit(str[i]) && str[i] && str)
 	{
-		if ((str[i] == '+'))
+		if (str[i] == '+')
 			num_plus++;
 		if (str[i])
 			i++;
@@ -93,7 +93,7 @@ int	n_mns(char *str)
 	i = 0;
 	while (!ft_isdigit(str[i]) && str[i] && str)
 	{
-		if ((str[i] == '-'))
+		if (str[i] == '-')
 			num_minus++;
 		if (str[i])
 			i++;

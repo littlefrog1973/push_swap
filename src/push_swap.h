@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/11 15:40:27 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 09:25:06 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	init_stack(int argc, char **argv, t_stack *a, t_stack *b);
 char	*init_record(int argc);
 void	free_stack(t_stack *a, t_stack *b);
 int		find_min(t_stack *a);
-int		find_min(t_stack *b);
+int		find_max(t_stack *b);
 
 
 /*sort_utils2.c*/

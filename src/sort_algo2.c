@@ -6,16 +6,15 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:49:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/13 08:48:57 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 10:32:02 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	move_to_top(t_stack *a, int i, char *rec)
-/*Optimize by using rra for lower half and ra for upper half*/
 {
-	if(i <= (*a).size / 2)
+	if ((i %(*a).size) < ((*a).size / 2))
 		while ((i % (*a).size))
 		{
 			ra(a, rec);
@@ -24,12 +23,22 @@ int	move_to_top(t_stack *a, int i, char *rec)
 	else
 		while ((i % (*a).size))
 		{
-			rra(a, rec);
+			rra(a,rec);
 			i++;
 		}
 	return (1);
 }
-
+/*
+int	move_to_top(t_stack *a, int i, char *rec)
+{
+	while ((i % (*a).size))
+	{
+		ra(a, rec);
+		i--;
+	}
+	return (1);
+}
+*/
 int	is_disorder_circle(t_stack *a, int i)
 {
 	int	size;
@@ -45,21 +54,21 @@ int	is_sort_circle(t_stack *a)
 {
 	int	i;
 	int	j;
+	int	k;
 	int	descen;
 	int	ascend;
-	int	min_pos;
 
 	j = 0;
 	descen = 0;
 	ascend = 0;
-	min_pos = find_min(a);
-	while (j + 1< (*a).size)
+	while (j + 1 < (*a).size)
 	{
-		i = j + min_pos;
+		i = j + find_min(a);
 		if ((*a).stack[i % (*a).size] < (*a).stack[(i + 1) % (*a).size])
-			descen++;
-		else
 			ascend++;
+		k = j + find_max(a);
+		if ((*a).stack[k % (*a).size] > (*a).stack[(k + 1) % (*a).size])
+			descen++;
 		j++;
 	}
 	if (ascend + 1 == (*a).size)
@@ -88,3 +97,16 @@ int	swap_circle(t_stack *a, char *rec)
 	}
 	return (1);
 }
+
+/*
+int	main(void)
+{
+	t_stack a;
+	int		a_array[] = {3, 1, 2};
+
+	a.stack = a_array;
+	a.size = 3;
+	printf("is_sort_circle = %d\n", is_sort_circle(&a));
+	return (0);
+}
+*/
