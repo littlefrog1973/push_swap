@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:49:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 10:32:02 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:47:38 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,25 @@
 
 int	move_to_top(t_stack *a, int i, char *rec)
 {
-	if ((i %(*a).size) < ((*a).size / 2))
+	if ((i % (*a).size) < ((*a).size / 2))
+	{
 		while ((i % (*a).size))
 		{
 			ra(a, rec);
 			i--;
 		}
+	}
 	else
+	{
 		while ((i % (*a).size))
 		{
-			rra(a,rec);
+			rra(a, rec);
 			i++;
 		}
-	return (1);
-}
-/*
-int	move_to_top(t_stack *a, int i, char *rec)
-{
-	while ((i % (*a).size))
-	{
-		ra(a, rec);
-		i--;
 	}
 	return (1);
 }
-*/
+
 int	is_disorder_circle(t_stack *a, int i)
 {
 	int	size;

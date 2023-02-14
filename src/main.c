@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:34:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/10 00:53:19 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:48:37 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	print_out(char *rec)
 }
 
 int	main(int argc, char *argv[])
+//		ft_printf("Data is OK but sorted\n");
 {
 	char	*rec;
 
@@ -37,7 +38,6 @@ int	main(int argc, char *argv[])
 		rec = sorting(argc, argv);
 	else
 	{
-		ft_printf("Data is OK but sorted\n");
 		return (0);
 	}
 	if (*rec)
