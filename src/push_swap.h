@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 09:25:06 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:06:33 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	rrr(t_stack *a, t_stack *b, char *rec);
 int	sort_two(t_stack *a, char *rec);
 int	sort_three(t_stack *a, char *rec);
 int	sort_four(t_stack *a, t_stack *b, char *rec);
+int	sort_five(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo2.c*/
 int	is_sort_circle(t_stack *a);
