@@ -6,13 +6,13 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:49:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 15:47:38 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:23:48 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	move_to_top(t_stack *a, int i, char *rec)
+int	move_to_top_a(t_stack *a, int i, char *rec)
 {
 	if ((i % (*a).size) < ((*a).size / 2))
 	{
@@ -34,12 +34,15 @@ int	move_to_top(t_stack *a, int i, char *rec)
 }
 
 int	is_disorder_circle(t_stack *a, int i)
+/*return = ASC for ascending, = DSC for descending*/
 {
 	int	size;
 
 	size = (*a).size;
 	if ((*a).stack[i % size] > (*a).stack[(i + 1) % size])
-		return (1);
+		return (DSC);
+	else if ((*a).stack[i % size] < (*a).stack[(i + 1) % size])
+		return (ASC);
 	else
 		return (0);
 }
@@ -66,28 +69,45 @@ int	is_sort_circle(t_stack *a)
 		j++;
 	}
 	if (ascend + 1 == (*a).size)
-		return (1);
+		return (ASC);
 	else if (descen + 1 == (*a).size)
-		return (-1);
+		return (DSC);
 	else
 		return (0);
 }
 
-int	swap_circle(t_stack *a, char *rec)
+int	swap_circle_a(t_stack *a, char *rec, int direction)
+/*direction = ASC for ascending, = DSC for descending*/
 {
 	int	i;
 	int	j;
 
-	j = 0;
-	while (j + 1 < (*a).size)
+	j = 1;
+	if (direction == ASC)
 	{
-		i = j + find_min(a);
-		if (is_disorder_circle(a, i))
+		while (j + 1 < (*a).size)
 		{
-			move_to_top(a, i, rec);
-			sa(a, rec);
+			i = j + find_min(a);
+			if (is_disorder_circle(a, i) == DSC)
+			{
+				move_to_top_a(a, i, rec);
+				sa(a, rec);
+			}
+			j++;
 		}
-		j++;
+	}
+	if (direction == DSC)
+	{
+		while (j + 1 < (*a).size)
+		{
+			i = j + find_max(a);
+			if (is_disorder_circle(a, i) == ASC)
+			{
+				move_to_top_a(a, i, rec);
+				sa(a, rec);
+			}
+			j++;
+		}
 	}
 	return (1);
 }

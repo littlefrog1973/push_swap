@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/11 06:12:37 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/15 13:25:04 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJDIR = ./obj/
 DEPS = push_swap.h
 
 SRC = check_argv.c utils.c sort.c sort_utils.c sort_utils2.c stack1.c stack2.c \
-      stack3.c sort_algo.c sort_algo2.c main.c
+      stack3.c sort_algo.c sort_algo2.c sort_algo3.c sort_algo4.c main.c
 
 OBJ := $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR), $(SRC))

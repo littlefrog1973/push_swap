@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 15:50:16 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:31:24 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_stack
 # define RRA 'i'
 # define RRB 'j'
 # define RRR 'k'
+# define ASC 1
+# define DSC -1
 
 /*check_argv.c*/
 int		check_argv(int argc, char **argv);
@@ -55,7 +57,7 @@ int		n_mns(char *str);
 char	*sorting(int argc, char **argv);
 int		is_sort(t_stack *a);
 int		sort_low_n(t_stack *a, t_stack *b, char *rec);
-int		bubble_sort(t_stack *a, t_stack *b, char *rec);
+int		bubble_sort_a(t_stack *a, char *rec, int direction);
 
 /*sort_utils.c*/
 int		init_stack(int argc, char **argv, t_stack *a, t_stack *b);
@@ -92,7 +94,15 @@ int		sort_five(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo2.c*/
 int		is_sort_circle(t_stack *a);
-int		swap_circle(t_stack *a, char *rec);
-int		move_to_top(t_stack *a, int i, char *rec);
+int		swap_circle_a(t_stack *a, char *rec, int direction);
+int		move_to_top_a(t_stack *a, int i, char *rec);
+int		is_disorder_circle(t_stack *a, int i);
 
+/*sort_algo3.c*/
+int		sort_hi_n(t_stack *a, t_stack *b, char *rec);
+
+/*sort_algo4.c*/
+int		move_to_top_b(t_stack *a, int i, char *rec);
+int		swap_circle_b(t_stack *a, char *rec, int direction);
+int		bubble_sort_b(t_stack *a, char *rec, int direction);
 #endif

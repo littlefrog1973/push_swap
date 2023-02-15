@@ -6,14 +6,14 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 15:50:51 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:28:08 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	is_sort(t_stack *a)
-/*return = 0 not sort, = 1 ascending sort, = -1 descending sort*/
+/*return = 0 not sort, = ASC ascending sort, = DSC descending sort*/
 {
 	int	i;
 	int	ascend;
@@ -31,9 +31,9 @@ int	is_sort(t_stack *a)
 		i++;
 	}
 	if (ascend + 1 == (*a).size)
-		return (1);
+		return (ASC);
 	else if (descen + 1 == (*a).size)
-		return (-1);
+		return (DSC);
 	else
 		return (0);
 }
@@ -58,6 +58,33 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 	}
 }
 
+int	bubble_sort_a(t_stack *a, char *rec, int direction)
+/*direction = 1 for ascending, = -1 for descending*/
+{
+	int	i;
+
+	i = 0;
+	if (direction == ASC)
+	{
+		while ((is_sort_circle(a) != ASC) && (i < 15000))
+		{
+			swap_circle_a(a, rec, ASC);
+			i++;
+		}
+		move_to_top_a(a, find_min(a), rec);
+	}
+	else if (direction == DSC)
+	{
+		while ((is_sort_circle(a) != DSC) && (i < 15000))
+		{
+			swap_circle_a(a, rec, DSC);
+			i++;
+		}
+		move_to_top_a(a, find_max(a), rec);
+	}
+	return (1);
+}
+/*
 int	bubble_sort(t_stack *a, t_stack *b, char *rec)
 {
 	int	i;
@@ -76,7 +103,7 @@ int	bubble_sort(t_stack *a, t_stack *b, char *rec)
 	move_to_top(a, find_min(a), rec);
 	return (1);
 }
-
+*/
 char	*sorting(int argc, char **argv)
 {
 	t_stack	stk_a;
@@ -88,10 +115,10 @@ char	*sorting(int argc, char **argv)
 		rec = init_record(argc - 1);
 	if (!rec)
 		free_stack(&stk_a, &stk_b);
-	if (argc < 7)
+	if (argc <= 6)
 		sort_low_n(&stk_a, &stk_b, rec);
 	else
-		bubble_sort(&stk_a, &stk_b, rec);
+		sort_hi_n(&stk_a, &stk_b, rec);
 	free_stack(&stk_a, &stk_b);
 	return (rec);
 }
