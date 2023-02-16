@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:34:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 15:48:37 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 06:15:43 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ int	main(int argc, char *argv[])
 	if (check_argv(argc, argv))
 		rec = sorting(argc, argv);
 	else
-	{
 		return (0);
-	}
 	if (*rec)
 		print_out(rec);
 	if (rec && *rec)

@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:55:42 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/15 16:33:00 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:20:12 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	push_half_in_order(t_stack *a, t_stack *b, char *rec)
 	half_size_a = (*a).size / 2;
 	while (i < half_size_a)
 	{
-		move_to_top_a(a, find_min(a), rec);
+		move_to_top_a(a, b, find_min(a), rec);
 		pb(a, b, rec);
 		i++;
 	}
@@ -73,7 +73,7 @@ int	push_back_in_order(t_stack *a, t_stack *b, char *rec)
 			else
 //			else if ((*a).stack[(*a).size - 1] < (*a).stack[0])
 			{
-				rra(a, rec);
+				rra(a, b, rec);
 			}
 		}
 		else if (is_sort(a) && ((*b).size  > 0) && i)
@@ -89,19 +89,19 @@ int		sort_hi_n(t_stack *a, t_stack *b, char *rec)
 		return (1);
 	else if ((is_sort_circle(a) == 1) && ((*b).size == 0))
 	{
-		move_to_top_a(a, find_min(a), rec);
+		move_to_top_a(a, b, find_min(a), rec);
 	}
 	else if ((*a).size > 5 && (*a).size < 501)
 	{
 		push_half_in_order(a, b, rec);
-		bubble_sort_a(a, rec, ASC);
+		bubble_sort_a(a, b, rec, ASC);
 		push_back(a, b, rec);
 	}
 	else
 	{
 		push_half(a, b, rec);
-		bubble_sort_a(a, rec, ASC);
-		bubble_sort_b(b, rec, DSC);
+		bubble_sort_a(a, b, rec, ASC);
+		bubble_sort_b(b, a, rec, DSC);
 		push_back_in_order(a, b, rec);
 	}
 	return (1);

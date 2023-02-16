@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/15 13:28:08 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:18:41 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 	else
 	{
 		if ((*a).size == 2)
-			sort_two(a, rec);
+			sort_two(a, b, rec);
 		if ((*a).size == 3)
-			sort_three(a, rec);
+			sort_three(a, b, rec);
 		if ((*a).size == 4)
 			sort_four(a, b, rec);
 		if ((*a).size == 5)
@@ -58,7 +58,7 @@ int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 	}
 }
 
-int	bubble_sort_a(t_stack *a, char *rec, int direction)
+int	bubble_sort_a(t_stack *a, t_stack *b, char *rec, int direction)
 /*direction = 1 for ascending, = -1 for descending*/
 {
 	int	i;
@@ -68,19 +68,19 @@ int	bubble_sort_a(t_stack *a, char *rec, int direction)
 	{
 		while ((is_sort_circle(a) != ASC) && (i < 15000))
 		{
-			swap_circle_a(a, rec, ASC);
+			swap_circle_a(a, b, rec, ASC);
 			i++;
 		}
-		move_to_top_a(a, find_min(a), rec);
+		move_to_top_a(a, b, find_min(a), rec);
 	}
 	else if (direction == DSC)
 	{
 		while ((is_sort_circle(a) != DSC) && (i < 15000))
 		{
-			swap_circle_a(a, rec, DSC);
+			swap_circle_a(a, b, rec, DSC);
 			i++;
 		}
-		move_to_top_a(a, find_max(a), rec);
+		move_to_top_a(a, b, find_max(a), rec);
 	}
 	return (1);
 }

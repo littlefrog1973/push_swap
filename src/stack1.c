@@ -6,17 +6,18 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:38:54 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 14:13:01 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:10:06 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sa(t_stack *a, char *rec)
+int	sa(t_stack *a, t_stack *b, char *rec)
 {
 	int	dummy;
 	int	i;
 
+	(void) b;
 	i = 0;
 	while (rec[i])
 		i++;
@@ -32,11 +33,12 @@ int	sa(t_stack *a, char *rec)
 	}
 }
 
-int	sb(t_stack *b, char *rec)
+int	sb(t_stack *b, t_stack *a, char *rec)
 {
 	int	dummy;
 	int	i;
 
+	(void) a;
 	i = 0;
 	while (rec[i])
 		i++;

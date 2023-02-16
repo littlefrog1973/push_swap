@@ -6,17 +6,18 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:31:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/09 14:28:27 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:21:45 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ra(t_stack *a, char *rec)
+int	ra(t_stack *a, t_stack *b, char *rec)
 {
 	int	dummy;
 	int	i;
 
+	(void) b;
 	i = (int) ft_strlen(rec);
 	rec[i] = RA;
 	if ((*a).size <= 1)
@@ -35,11 +36,12 @@ int	ra(t_stack *a, char *rec)
 	}
 }
 
-int	rb(t_stack *a, char *rec)
+int	rb(t_stack *a, t_stack *b, char *rec)
 {
 	int	dummy;
 	int	i;
 
+	(void) b;
 	i = (int) ft_strlen(rec);
 	rec[i] = RB;
 	if ((*a).size <= 1)
@@ -69,9 +71,9 @@ int	rr(t_stack *a, t_stack *b, char *rec)
 	if ((*a).size <= 1 && (*b).size <= 1)
 		return (0);
 	if ((*a).size > 1)
-		ra(a, rec_dummy);
+		ra(a, b, rec_dummy);
 	if ((*b).size > 1)
-		rb(b, rec_dummy);
+		rb(b, a, rec_dummy);
 	return (1);
 }
 /*

@@ -6,19 +6,19 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:49:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/15 13:23:48 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:16:11 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	move_to_top_a(t_stack *a, int i, char *rec)
+int	move_to_top_a(t_stack *a, t_stack *b, int i, char *rec)
 {
 	if ((i % (*a).size) < ((*a).size / 2))
 	{
 		while ((i % (*a).size))
 		{
-			ra(a, rec);
+			ra(a, b, rec);
 			i--;
 		}
 	}
@@ -26,7 +26,7 @@ int	move_to_top_a(t_stack *a, int i, char *rec)
 	{
 		while ((i % (*a).size))
 		{
-			rra(a, rec);
+			rra(a, b, rec);
 			i++;
 		}
 	}
@@ -76,7 +76,7 @@ int	is_sort_circle(t_stack *a)
 		return (0);
 }
 
-int	swap_circle_a(t_stack *a, char *rec, int direction)
+int	swap_circle_a(t_stack *a, t_stack *b, char *rec, int direction)
 /*direction = ASC for ascending, = DSC for descending*/
 {
 	int	i;
@@ -90,8 +90,8 @@ int	swap_circle_a(t_stack *a, char *rec, int direction)
 			i = j + find_min(a);
 			if (is_disorder_circle(a, i) == DSC)
 			{
-				move_to_top_a(a, i, rec);
-				sa(a, rec);
+				move_to_top_a(a, b, i, rec);
+				sa(a, b, rec);
 			}
 			j++;
 		}
@@ -103,8 +103,8 @@ int	swap_circle_a(t_stack *a, char *rec, int direction)
 			i = j + find_max(a);
 			if (is_disorder_circle(a, i) == ASC)
 			{
-				move_to_top_a(a, i, rec);
-				sa(a, rec);
+				move_to_top_a(a, b, i, rec);
+				sa(a, b, rec);
 			}
 			j++;
 		}
