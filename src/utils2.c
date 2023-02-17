@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 06:13:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 10:35:51 by sdeeyien         ###   ########.fr       */
+/*   Created: 2023/02/17 10:19:15 by sdeeyien          #+#    #+#             */
+/*   Updated: 2023/02/17 10:23:47 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
-// Main function for checker program
+void err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no)
 {
-	int		check_result;
-	char	dummy[2];
-	char	*order;
-
-	order = "";
-	ft_memset(dummy, 0, 2);
-	if (argc == 1)
-		exit(1);
-	if (check_argv(argc, argv))
-		check_result = checking(argc, argv, dummy, order);
-	else
-		return (0);
-	if (check_result == ASC)
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
-	return (0);
+	if (err_no == 1)
+	{
+		free(order);
+		free_stack(a, b);
+		err_exit(1);
+	}
 }

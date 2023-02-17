@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 12:44:18 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 10:26:18 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,8 @@ int		swap_circle_b(t_stack *a, t_stack *b, char *rec, int direction);
 int		bubble_sort_b(t_stack *a, t_stack *b, char *rec, int direction);
 
 /*check_result.c*/
-int		checking(int argc, char *argv[], char *dummy);
+int		checking(int argc, char *argv[], char *dummy, char *order);
+
+/*utils2.c*/
+void err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no);
 #endif
