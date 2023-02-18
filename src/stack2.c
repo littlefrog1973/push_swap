@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:31:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 11:21:45 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:49:11 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ int	rb(t_stack *a, t_stack *b, char *rec)
 	int	dummy;
 	int	i;
 
-	(void) b;
+	(void) a;
 	i = (int) ft_strlen(rec);
 	rec[i] = RB;
-	if ((*a).size <= 1)
+	if ((*b).size <= 1)
 		return (0);
 	else
 	{
 		i = 0;
-		dummy = (*a).stack[0];
-		while (i + 1 < (*a).size)
+		dummy = (*b).stack[0];
+		while (i + 1 < (*b).size)
 		{
-			(*a).stack[i] = (*a).stack[i + 1];
+			(*b).stack[i] = (*b).stack[i + 1];
 			i++;
 		}
-		(*a).stack[i] = dummy;
+		(*b).stack[i] = dummy;
 		return (1);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/17 10:27:15 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/17 13:02:27 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 
 bonus: $(BONUS_OBJ)
 	cd $(LIBDIR) && make
-	$(CC) $(CFLAGS) $(DEPS) $(BONUS_OBJ) $(LIBDIR)/$(LIBOBJ) -o checker
+	$(CC) $(CFLAGS) $(DEPS) $(BONUS_OBJ) $(LIBDIR)/$(LIBOBJ) -o checker_bonus
 
 $(OBJ): $(SRC)
 	$(CC) -c -g $(CFLAGS) $(DEPS) $(SRC)

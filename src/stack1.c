@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:38:54 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 11:10:06 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:19:17 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	sa(t_stack *a, t_stack *b, char *rec)
 	}
 }
 
-int	sb(t_stack *b, t_stack *a, char *rec)
+int	sb(t_stack *a, t_stack *b, char *rec)
 {
 	int	dummy;
 	int	i;
@@ -114,6 +114,7 @@ int	pb(t_stack *b, t_stack *a, char *rec)
 
 	i = (int) ft_strlen(rec);
 	rec[i] = PB;
+//	if ((*a).size == 0)
 	if ((*b).size == 0)
 		return (0);
 	else
@@ -137,18 +138,18 @@ int	pb(t_stack *b, t_stack *a, char *rec)
 /*
 int	main(void)
 {
-	int		aa[] = {1, 2, 3, 0};
+	int		aa[] = {0, 0, 0, 0};
 	int		bb[] = {4, 5, 0, 0};
 	t_stack	a;
 	t_stack b;
 	char	cc[5] = {'a', 'b', 0, 0, 0};
 
 	a.stack = aa;
-	a.size = 3;
+	a.size = 0;
 	b.stack = bb;
 	b.size = 2;
 
-	pb(&a, &b, cc);
+	pa(&a, &b, cc);
 	printf("aa[0] = %d\n", a.stack[0]);
 	printf("aa[1] = %d\n", a.stack[1]);
 	printf("aa[2] = %d\n", a.stack[2]);

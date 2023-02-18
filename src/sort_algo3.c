@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:55:42 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 08:22:22 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/18 10:46:29 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	push_half(t_stack *a, t_stack *b, char *rec)
 	half_size_a = (*a).size / 2;
 	while (i < half_size_a)
 	{
-//		move_to_top(a, find_min(a), rec);
 		pb(a, b, rec);
 		i++;
 	}
@@ -71,19 +70,18 @@ int	push_back_in_order(t_stack *a, t_stack *b, char *rec)
 			if (((*a).stack[(*a).size - 1] < (*b).stack[0]) && (*b).size > 0)
 				pa(a, b, rec);
 			else
-//			else if ((*a).stack[(*a).size - 1] < (*a).stack[0])
 			{
 				rra(a, b, rec);
 			}
 		}
-		else if (is_sort(a) && ((*b).size  > 0) && i)
+		else if (is_sort(a) && ((*b).size > 0) && i)
 			pa(a, b, rec);
 		i++;
 	}
 	return (1);
 }
 
-int		sort_hi_n(t_stack *a, t_stack *b, char *rec)
+int	sort_hi_n(t_stack *a, t_stack *b, char *rec)
 {
 	if (is_sort(a) == 1 && (*b).size == 0)
 		return (1);
@@ -91,7 +89,7 @@ int		sort_hi_n(t_stack *a, t_stack *b, char *rec)
 	{
 		move_to_top_a(a, b, find_min(a), rec);
 	}
-	else if ((*a).size > 5 && (*a).size < 9)
+	else if ((*a).size > 5 && (*a).size < 13)
 	{
 		push_half_in_order(a, b, rec);
 		bubble_sort_a(a, b, rec, ASC);
@@ -101,7 +99,7 @@ int		sort_hi_n(t_stack *a, t_stack *b, char *rec)
 	{
 		push_half(a, b, rec);
 		bubble_sort_a(a, b, rec, ASC);
-		bubble_sort_b(b, a, rec, DSC);
+		bubble_sort_b(a, b, rec, DSC);
 		push_back_in_order(a, b, rec);
 	}
 	return (1);

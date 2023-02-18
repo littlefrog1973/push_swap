@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:23:56 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 10:39:55 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:00:48 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,55 +36,42 @@ void	init_tag(char tag[][4])
 
 int	search_order(char tag[][4], char *order)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 11)
 	{
 		if (!(ft_strncmp(tag[i], order, 3)))
-			break;
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-int	checking(int argc, char *argv[], char *dummy, char *order)
+int	checking(t_stack *a, t_stack *b, char *dummy, char *order)
 {
-	t_stack	stk_a;
-	t_stack	stk_b;
 	int		(*order_ptr[12])(t_stack *, t_stack *, char *);
 	char	tag[11][4];
 	int		i;
 
 	init_tag(tag);
 	init_function_ptr(order_ptr);
-	if (!init_stack(argc, argv, &stk_a, &stk_b))
-		err_exit(2);
-	else
+	while (order != NULL)
 	{
-		while (order != NULL)
-		{
-			order = get_next_line(STDIN_FILENO);
-			if (!order)
-				break;
-			if (order[ft_strlen(order) - 1] == '\n' && order[0])
-				order[ft_strlen(order) - 1] = '\0';
-			i = search_order(tag, order);
-			if (i >= 11)
-				err_exit_free_mem(order, &stk_a, &stk_b, 1);
-			order_ptr[i](&stk_a, &stk_b, dummy);
-			dummy[0] = 0;
-			free(order);
-		}
+		order = get_next_line(STDIN_FILENO);
+		if (!order)
+			break ;
+		if (order[ft_strlen(order) - 1] == '\n' && order[0])
+			order[ft_strlen(order) - 1] = '\0';
+		i = search_order(tag, order);
+		if (i >= 11)
+			err_exit_free_mem(order, a, b, 1);
+		order_ptr[i](a, b, dummy);
+		dummy[0] = 0;
+		free(order);
 	}
-	if (is_sort(&stk_a) == ASC &&  stk_b.size == 0)
-	{
-		free_stack(&stk_a, &stk_b);
+	if (is_sort(a) == ASC && (*b).size == 0)
 		return (ASC);
-	}
 	else
-	{
-		free_stack(&stk_a, &stk_b);
 		return (0);
-	}
 }

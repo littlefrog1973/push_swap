@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:14:31 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 12:21:34 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/18 10:12:58 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	move_to_top_b(t_stack *a, t_stack *b, int i, char *rec)
 {
-	if ((i % (*a).size) < ((*a).size / 2))
+	if ((i % (*b).size) < ((*b).size / 2))
 	{
-		while ((i % (*a).size))
+		while ((i % (*b).size))
 		{
 			rb(a, b, rec);
 			i--;
@@ -24,7 +24,7 @@ int	move_to_top_b(t_stack *a, t_stack *b, int i, char *rec)
 	}
 	else
 	{
-		while ((i % (*a).size))
+		while ((i % (*b).size))
 		{
 			rrb(a, b, rec);
 			i++;
@@ -36,35 +36,28 @@ int	move_to_top_b(t_stack *a, t_stack *b, int i, char *rec)
 int	swap_circle_b(t_stack *a, t_stack *b, char *rec, int direction)
 /*direction = ASC for ascending, = DSC for descending*/
 {
-	int	i;
 	int	j;
 
 	j = 1;
-	if (direction == ASC)
+	while (j + 1 < (*b).size)
 	{
-		while (j + 1 < (*a).size)
+		if (direction == ASC)
 		{
-			i = j + find_min(a);
-			if (is_disorder_circle(a, i) == DSC)
+			if (is_disorder_circle(b, j + find_min(b)) == DSC)
 			{
-				move_to_top_b(a, b, i, rec);
+				move_to_top_b(a, b, j + find_min(b), rec);
 				sb(a, b, rec);
 			}
-			j++;
 		}
-	}
-	if (direction == DSC)
-	{
-		while (j + 1 < (*a).size)
+		if (direction == DSC)
 		{
-			i = j + find_max(a);
-			if (is_disorder_circle(a, i) == ASC)
+			if (is_disorder_circle(b, j + find_max(b)) == ASC)
 			{
-				move_to_top_b(a, a, i, rec);
+				move_to_top_b(a, b, j + find_max(b), rec);
 				sb(a, b, rec);
 			}
-			j++;
 		}
+		j++;
 	}
 	return (1);
 }
@@ -77,21 +70,21 @@ int	bubble_sort_b(t_stack *a, t_stack *b, char *rec, int direction)
 	i = 0;
 	if (direction == ASC)
 	{
-		while ((is_sort_circle(a) != ASC) && (i < 15000))
+		while ((is_sort_circle(b) != ASC) && (i < 15000))
 		{
 			swap_circle_b(a, b, rec, ASC);
 			i++;
 		}
-		move_to_top_b(a, b, find_min(a), rec);
+		move_to_top_b(a, b, find_min(b), rec);
 	}
 	else if (direction == DSC)
 	{
-		while ((is_sort_circle(a) != DSC) && (i < 15000))
+		while ((is_sort_circle(b) != DSC) && (i < 15000))
 		{
 			swap_circle_b(a, b, rec, DSC);
 			i++;
 		}
-		move_to_top_b(a, b, find_max(a), rec);
+		move_to_top_b(a, b, find_max(b), rec);
 	}
 	return (1);
 }

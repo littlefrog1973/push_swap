@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 23:49:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 12:50:46 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:16:11 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,28 +79,35 @@ int	is_sort_circle(t_stack *a)
 int	swap_circle_a(t_stack *a, t_stack *b, char *rec, int direction)
 /*direction = ASC for ascending, = DSC for descending*/
 {
+	int	i;
 	int	j;
 
 	j = 1;
-	while (j + 1 < (*a).size)
+	if (direction == ASC)
 	{
-		if (direction == ASC)
+		while (j + 1 < (*a).size)
 		{
-			if (is_disorder_circle(a, j + find_min(a)) == DSC)
+			i = j + find_min(a);
+			if (is_disorder_circle(a, i) == DSC)
 			{
-				move_to_top_a(a, b, j + find_min(a), rec);
+				move_to_top_a(a, b, i, rec);
 				sa(a, b, rec);
 			}
+			j++;
 		}
-		if (direction == DSC)
+	}
+	if (direction == DSC)
+	{
+		while (j + 1 < (*a).size)
 		{
-			if (is_disorder_circle(a, j + find_max(a)) == ASC)
+			i = j + find_max(a);
+			if (is_disorder_circle(a, i) == ASC)
 			{
-				move_to_top_a(a, b, j + find_max(a), rec);
+				move_to_top_a(a, b, i, rec);
 				sa(a, b, rec);
 			}
+			j++;
 		}
-		j++;
 	}
 	return (1);
 }

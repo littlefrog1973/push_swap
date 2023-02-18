@@ -6,13 +6,13 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:19:15 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 10:23:47 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:26:19 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no)
+void	err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no)
 {
 	if (err_no == 1)
 	{

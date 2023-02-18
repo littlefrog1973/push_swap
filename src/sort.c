@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 12:18:41 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:22:59 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int	bubble_sort(t_stack *a, t_stack *b, char *rec)
 	return (1);
 }
 */
+
 char	*sorting(int argc, char **argv)
 {
 	t_stack	stk_a;

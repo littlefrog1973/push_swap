@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:30:14 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/16 12:09:07 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:32:10 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	rra(t_stack *a, t_stack *b, char *rec)
 	int	dummy;
 	int	i;
 
-	(void) b;
+	dummy = (*b).size;
 	i = (int) ft_strlen(rec);
 	rec[i] = RRA;
 	if ((*a).size == 1)
@@ -41,21 +41,21 @@ int	rrb(t_stack *a, t_stack *b, char *rec)
 	int	dummy;
 	int	i;
 
-	(void) b;
+	dummy = (*a).size;
 	i = (int) ft_strlen(rec);
 	rec[i] = RRB;
-	if ((*a).size == 1)
+	if ((*b).size == 1)
 		return (0);
 	else
 	{
-		i = (*a).size - 1;
-		dummy = (*a).stack[i];
+		i = (*b).size - 1;
+		dummy = (*b).stack[i];
 		while (i > 0)
 		{
-			(*a).stack[i] = (*a).stack[i - 1];
+			(*b).stack[i] = (*b).stack[i - 1];
 			i--;
 		}
-		(*a).stack[i] = dummy;
+		(*b).stack[i] = dummy;
 		return (1);
 	}
 }
@@ -90,8 +90,8 @@ int	main(void)
 	b.stack = bb;
 	b.size = 2;
 
-//	rra(&a, cc);
-//	rrb(&b, cc);
+	rra(&a, &b, cc);
+	rrb(&a, &b, cc);
 	rrr(&a, &b, cc);
 	printf("aa[0] = %d\n", a.stack[0]);
 	printf("aa[1] = %d\n", a.stack[1]);
