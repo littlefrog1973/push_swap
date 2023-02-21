@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/18 10:53:30 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:11:35 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,10 @@ int		is_disorder_circle(t_stack *a, int i);
 
 /*sort_algo3.c*/
 int		sort_hi_n(t_stack *a, t_stack *b, char *rec);
+int	push_half_in_order(t_stack *a, t_stack *b, char *rec);
+int	push_back(t_stack *a, t_stack *b, char *rec);
+int	push_back_in_order(t_stack *a, t_stack *b, char *rec);
+int	push_half(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo4.c*/
 int		move_to_top_b(t_stack *a, t_stack *b, int i, char *rec);
@@ -114,4 +118,8 @@ void err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no);
 
 /*sort_algo5.c*/
 int		bubble_sort_ab(t_stack *a, t_stack *b, char *rec);
+int		sort_hi_n_ab(t_stack *a, t_stack *b, char *rec);
+
+/*sort_algo6.c*/
+int		sort_hi_chunk(t_stack *a, t_stack *b, char *rec);
 #endif

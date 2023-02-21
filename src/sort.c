@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 11:22:59 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:08:58 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,9 @@ char	*sorting(int argc, char **argv)
 	if (argc <= 6)
 		sort_low_n(&stk_a, &stk_b, rec);
 	else
-		sort_hi_n(&stk_a, &stk_b, rec);
+		sort_hi_chunk(&stk_a, &stk_b, rec);
+//		sort_hi_n(&stk_a, &stk_b, rec);
+//		sort_hi_n_ab(&stk_a, &stk_b, rec);
 	free_stack(&stk_a, &stk_b);
 	return (rec);
 }

@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:31:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 14:49:11 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/21 08:43:58 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	rr(t_stack *a, t_stack *b, char *rec)
 	if ((*a).size > 1)
 		ra(a, b, rec_dummy);
 	if ((*b).size > 1)
-		rb(b, a, rec_dummy);
+		rb(a, b, rec_dummy);
 	return (1);
 }
 /*
