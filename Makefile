@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/22 12:08:02 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/22 16:53:06 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ DEPS = push_swap.h
 
 SRC = check_argv.c utils.c sort.c sort_utils.c sort_utils2.c stack1.c stack2.c \
       stack3.c sort_algo.c sort_algo2.c sort_algo3.c sort_algo4.c push_swap.c \
-      sort_algo6.c utils2.c
+      sort_algo6.c utils2.c sort_algo7.c
 BONUS = checker.c check_argv.c check_sort.c stack1.c stack2.c stack3.c utils.c \
       sort_utils.c sort.c sort_algo.c sort_algo2.c sort_algo3.c sort_algo4.c \
-	  utils2.c sort_algo6.c
+	  utils2.c sort_algo6.c sort_algo7.c
 
 OBJ := $(SRC:.c=.o)
 BONUS_OBJ := $(BONUS:.c=.o)
@@ -57,7 +57,7 @@ clean :
 	make -C $(LIBDIR) clean
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(NAME) checker_bonus
 	make -C $(LIBDIR) fclean
 
 re : fclean all

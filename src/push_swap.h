@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/22 11:34:03 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:43:52 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,4 +124,9 @@ int		sort_hi_n_ab(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo6.c*/
 int		sort_hi_chunk(t_stack *a, t_stack *b, char *rec);
+void	normalized(t_stack *a, t_stack *b);
+
+/*sort_algo7.c*/
+void		sort_hi_radix(t_stack *a, t_stack *b, char *rec);
+
 #endif
