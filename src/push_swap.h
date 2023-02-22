@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/20 16:11:35 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:34:03 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_stack
 # define RRR 'k'
 # define ASC 1
 # define DSC -1
+# define CHUNK_SIZE 3
 
 /*check_argv.c*/
 int		check_argv(int argc, char **argv);
@@ -114,7 +115,8 @@ int		bubble_sort_b(t_stack *a, t_stack *b, char *rec, int direction);
 int		checking(t_stack *a, t_stack *b, char *dummy, char *order);
 
 /*utils2.c*/
-void err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no);
+void	err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no);
+int		n_spc_back(char *str);
 
 /*sort_algo5.c*/
 int		bubble_sort_ab(t_stack *a, t_stack *b, char *rec);

@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:06:19 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/07 14:47:34 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:12:09 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,25 @@ int	is_all_digit(char **a)
 /* Find that all data in parameters are digits or not*/
 {
 	int	i;
-	int	digit;
 	int	j;
 
 	i = 1;
 	j = 0;
-	digit = 1;
 	while (a[i])
 	{
 		j = n_pls(a[i]) + n_mns(a[i]) + n_spc(a[i]);
+		if (!(a[i][j]) || (n_pls(a[i]) > 1) || (n_mns(a[i]) > 1) || (n_pls(a[i])
+			&& (n_mns(a[i]))))
+			return (0);
 		while (a[i][j])
 		{
-			if (!ft_isdigit(a[i][j]))
+			if (!(ft_isdigit(a[i][j]) || ft_isspace(a[i][j])))
 				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (digit);
+	return (1);
 }
 
 int	is_sort_char(char **argv)
@@ -97,7 +98,7 @@ int	is_overflow(char **a)
 			continue ;
 		}
 		if (n_digit(ft_atoi(a[i])) != (ft_strlen(a[i]) - n_spc(a[i])
-				- n_pls(a[i])))
+				- n_pls(a[i]) - n_spc_back(a[i])))
 			return (1);
 		if (ft_strlen(a[i]) - n_spc(a[i]) - n_pls(a[i]) - n_mns(a[i]) > 10)
 			return (1);

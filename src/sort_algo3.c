@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:55:42 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/18 10:46:29 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/22 08:53:18 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	sort_hi_n(t_stack *a, t_stack *b, char *rec)
 	{
 		move_to_top_a(a, b, find_min(a), rec);
 	}
-	else if ((*a).size > 5 && (*a).size < 13)
+	else if ((*a).size > 5 && (*a).size < 21)
 	{
 		push_half_in_order(a, b, rec);
 		bubble_sort_a(a, b, rec, ASC);
