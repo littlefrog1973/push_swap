@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:38:54 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/23 09:32:08 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:39:18 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	pa(t_stack *a, t_stack *b, char *rec)
 			i--;
 		}
 		(*a).stack[i] = (*b).stack[0];
-		while (i < (*b).size)
+		while (i + 1 < (*b).size)
 		{
 				(*b).stack[i] = (*b).stack[i + 1];
 			i++;
@@ -125,7 +125,7 @@ int	pb(t_stack *b, t_stack *a, char *rec)
 			i--;
 		}
 		(*a).stack[i] = (*b).stack[0];
-		while (i < (*b).size)
+		while (i + 1 < (*b).size)
 		{
 				(*b).stack[i] = (*b).stack[i + 1];
 			i++;
