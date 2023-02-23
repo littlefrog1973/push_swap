@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/23 16:39:28 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/23 18:41:41 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ DEPS := $(addprefix $(SRCDIR), $(DEPS))
 NAME = push_swap
 BONUS_NAME = checker
 
-all : $(NAME) $(BONUS_NAME)
+all : $(NAME)
 
 $(NAME): $(OBJ)
 	cd $(LIBDIR) && make
