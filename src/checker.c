@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 06:13:37 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/17 16:40:59 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:21:57 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ int	main(int argc, char *argv[])
 
 	order = "";
 	ft_memset(dummy, 0, 2);
-	if (argc == 1)
-		exit(1);
-	if (!check_argv(argc, argv))
+	check_result = 0;
+	if (!check_argv(argc, argv) || argc == 1)
 		return (0);
 	else
 	{

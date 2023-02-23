@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 12:25:01 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/23 14:36:16 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/23 16:21:06 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,13 @@ all : $(NAME) $(BONUS_NAME)
 
 $(NAME): $(OBJ)
 	cd $(LIBDIR) && make
-	$(CC) $(CFLAGS) $(DEPS) $(OBJ) $(LIBDIR)/$(LIBOBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBDIR)/$(LIBOBJ) -o $@
 
 bonus : $(BONUS_NAME)
 
 $(BONUS_NAME): $(BONUS_OBJ)
 	cd $(LIBDIR) && make
-	$(CC) $(CFLAGS) $(DEPS) $(BONUS_OBJ) $(LIBDIR)/$(LIBOBJ) -o $(BONUS_NAME)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBDIR)/$(LIBOBJ) -o $@
 
 $(OBJ): $(SRC)
 	$(CC) -c $(CFLAGS) $(DEPS) $(SRC)
