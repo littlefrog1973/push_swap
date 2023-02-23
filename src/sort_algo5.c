@@ -6,72 +6,77 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:49:13 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/20 14:31:45 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:01:04 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	double_record(char *rec, char dummy[2][500])
+int	find_n(t_stack *a, int to_find)
 {
-	int	len_0;
-	int	len_1;
+	int	i;
 
-	len_0 = ft_strlen(dummy[0]);
-	len_1 = ft_strlen(dummy[1]);
-	if ((*dummy[0] == RA && *dummy[1] == RB) || (*dummy[0] == RRA && *dummy[1] == RRB))
+	i = 0;
+	while (i < (*a).size)
 	{
-		if ((len_0 >= len_1))
+		if ((*a).stack[i] == to_find)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int	double_record(char *rec, char dmy[2][500])
+{
+	if ((*dmy[0] == RA && *dmy[1] == RB) || (*dmy[0] == RRA && *dmy[1] == RRB))
+	{
+		if ((ft_strlen(dmy[0]) >= ft_strlen(dmy[1])))
 		{
-			if (dummy[0][0] == RA && dummy[1][0] == RB)
-				ft_memset(&rec[ft_strlen(rec)], RR, len_1);
-			if (dummy[0][0] == RRA && dummy[1][0] == RRB)
-				ft_memset(&rec[ft_strlen(rec)], RRR, len_1);
-			ft_memset(&rec[ft_strlen(rec)], dummy[0][0], len_0 - len_1);
+			if (dmy[0][0] == RA && dmy[1][0] == RB)
+				ft_memset(&rec[ft_strlen(rec)], RR, ft_strlen(dmy[1]));
+			if (dmy[0][0] == RRA && dmy[1][0] == RRB)
+				ft_memset(&rec[ft_strlen(rec)], RRR, ft_strlen(dmy[1]));
+			ft_memset(&rec[ft_strlen(rec)], dmy[0][0], ft_strlen(dmy[0])
+				- ft_strlen(dmy[1]));
 		}
 		else
 		{
-			if (dummy[0][0] == RA && dummy[1][0] == RB)
-				ft_memset(&rec[ft_strlen(rec)], RR, len_0);
-			if (dummy[0][0] == RRA && dummy[1][0] == RRB)
-				ft_memset(&rec[ft_strlen(rec)], RRR, len_0);
-			ft_memset(&rec[ft_strlen(rec)], dummy[1][0], len_1 - len_0);
+			if (dmy[0][0] == RA && dmy[1][0] == RB)
+				ft_memset(&rec[ft_strlen(rec)], RR, ft_strlen(dmy[0]));
+			if (dmy[0][0] == RRA && dmy[1][0] == RRB)
+				ft_memset(&rec[ft_strlen(rec)], RRR, ft_strlen(dmy[0]));
+			ft_memset(&rec[ft_strlen(rec)], dmy[1][0], ft_strlen(dmy[1])
+				- ft_strlen(dmy[0]));
 		}
-	return (1);
+		return (1);
 	}
 	return (0);
 }
 
 int	bubble_sort_ab(t_stack *a, t_stack *b, char	*rec)
 {
-	char	rec_dummy[2][500];
+	char	rec_dmy[2][500];
 	int		i;
 
 	i = 1;
-	while (i + 1< (*a).size)
+	while (i++ < (*a).size - 1)
 	{
-		ft_bzero(rec_dummy, 1000);
+		ft_bzero(rec_dmy, 1000);
 		if (is_disorder_circle(a, i + find_min(a)) == DSC)
-			move_to_top_a(a, b, i + find_min(a), rec_dummy[0]);
+			move_to_top_a(a, b, i + find_min(a), rec_dmy[0]);
 		if (is_disorder_circle(b, i + find_max(b)) == ASC)
-			move_to_top_b(a, b, i + find_max(b), rec_dummy[1]);
-		if (double_record(rec, rec_dummy))
+			move_to_top_b(a, b, i + find_max(b), rec_dmy[1]);
+		if (double_record(rec, rec_dmy))
 		{
 			ss(a, b, rec);
-			i++;
-			continue;
+			continue ;
 		}
+		ft_memset(&rec[ft_strlen(rec)], *rec_dmy[0], ft_strlen(rec_dmy[0]));
+		ft_memset(&rec[ft_strlen(rec)], *rec_dmy[1], ft_strlen(rec_dmy[1]));
 		if (is_disorder_circle(a, i + find_min(a)) == DSC)
-		{
-			ft_memset(&rec[ft_strlen(rec)], *rec_dummy[0], ft_strlen(rec_dummy[0]));
 			sa(a, b, rec);
-		}
 		if (is_disorder_circle(b, i + find_max(b)) == ASC)
-		{
-			ft_memset(&rec[ft_strlen(rec)], *rec_dummy[1], ft_strlen(rec_dummy[1]));
 			sb(a, b, rec);
-		}
-		i++;
 	}
 	return (1);
 }
@@ -95,8 +100,6 @@ int	sort_hi_n_ab(t_stack *a, t_stack *b, char *rec)
 			bubble_sort_ab(a, b, rec);
 		move_to_top_a(a, b, find_min(a), rec);
 		move_to_top_b(a, b, find_max(b), rec);
-//		bubble_sort_a(a, b, rec, ASC);
-//		bubble_sort_b(a, b, rec, DSC);
 		push_back_in_order(a, b, rec);
 	}
 	return (1);

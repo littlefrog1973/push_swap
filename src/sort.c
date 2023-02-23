@@ -6,37 +6,11 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:14:40 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/22 15:16:03 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:27:05 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sort(t_stack *a)
-/*return = 0 not sort, = ASC ascending sort, = DSC descending sort*/
-{
-	int	i;
-	int	ascend;
-	int	descen;
-
-	i = 0;
-	ascend = 0;
-	descen = 0;
-	while (i + 1 < (*a).size)
-	{
-		if ((*a).stack[i] < (*a).stack[i + 1])
-			ascend++;
-		else
-			descen++;
-		i++;
-	}
-	if (ascend + 1 == (*a).size)
-		return (ASC);
-	else if (descen + 1 == (*a).size)
-		return (DSC);
-	else
-		return (0);
-}
 
 int	sort_low_n(t_stack *a, t_stack *b, char *rec)
 {
@@ -119,9 +93,6 @@ char	*sorting(int argc, char **argv)
 	if (argc <= 6)
 		sort_low_n(&stk_a, &stk_b, rec);
 	else
-//		sort_hi_chunk(&stk_a, &stk_b, rec);
-//		sort_hi_n(&stk_a, &stk_b, rec);
-//		sort_hi_n_ab(&stk_a, &stk_b, rec);
 		sort_hi_radix(&stk_a, &stk_b, rec);
 	free_stack(&stk_a, &stk_b);
 	return (rec);

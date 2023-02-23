@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:50:45 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/22 17:25:57 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 06:42:21 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	find_max_digit(t_stack *a)
 
 	max = (*a).stack[find_max(a)];
 	digit = 0;
-	while(max >> digit)
+	while (max >> digit)
 		digit++;
 	return (digit);
 }
@@ -72,4 +72,3 @@ void	sort_hi_radix(t_stack *a, t_stack *b, char *rec)
 		}
 	}
 }
-

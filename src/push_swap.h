@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:07:57 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/22 15:43:52 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:22:22 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int		n_mns(char *str);
 
 /*sort.c*/
 char	*sorting(int argc, char **argv);
-int		is_sort(t_stack *a);
 int		sort_low_n(t_stack *a, t_stack *b, char *rec);
 int		bubble_sort_a(t_stack *a, t_stack *b, char *rec, int direction);
 
@@ -101,10 +100,10 @@ int		is_disorder_circle(t_stack *a, int i);
 
 /*sort_algo3.c*/
 int		sort_hi_n(t_stack *a, t_stack *b, char *rec);
-int	push_half_in_order(t_stack *a, t_stack *b, char *rec);
-int	push_back(t_stack *a, t_stack *b, char *rec);
-int	push_back_in_order(t_stack *a, t_stack *b, char *rec);
-int	push_half(t_stack *a, t_stack *b, char *rec);
+int		push_half_in_order(t_stack *a, t_stack *b, char *rec);
+int		push_back(t_stack *a, t_stack *b, char *rec);
+int		push_back_in_order(t_stack *a, t_stack *b, char *rec);
+int		push_half(t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo4.c*/
 int		move_to_top_b(t_stack *a, t_stack *b, int i, char *rec);
@@ -117,16 +116,23 @@ int		checking(t_stack *a, t_stack *b, char *dummy, char *order);
 /*utils2.c*/
 void	err_exit_free_mem(char *order, t_stack *a, t_stack *b, int err_no);
 int		n_spc_back(char *str);
+int		is_sort(t_stack *a);
 
 /*sort_algo5.c*/
 int		bubble_sort_ab(t_stack *a, t_stack *b, char *rec);
 int		sort_hi_n_ab(t_stack *a, t_stack *b, char *rec);
+int		find_n(t_stack *a, int to_find);
 
 /*sort_algo6.c*/
 int		sort_hi_chunk(t_stack *a, t_stack *b, char *rec);
 void	normalized(t_stack *a, t_stack *b);
+void	find_chunk_pos(t_stack *a, int *chunk_no, int *chunk_pos);
+
+/*sort_algo6_a.c*/
+void	put_chunk(t_stack *a, t_stack *b, char *rec, int *chunk_no);
+int		sort_chunk(int	*chunk_no, t_stack *a, t_stack *b, char *rec);
 
 /*sort_algo7.c*/
-void		sort_hi_radix(t_stack *a, t_stack *b, char *rec);
+void	sort_hi_radix(t_stack *a, t_stack *b, char *rec);
 
 #endif
