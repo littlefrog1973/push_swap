@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:09:06 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/14 15:34:21 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:52:46 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int	init_stack(int argc, char **argv, t_stack *a, t_stack *b)
 }
 
 char	*init_record(int n)
-//	rec = (char *) ft_calloc((size_t) n * log_base2(n) * 10, sizeof(char));
+//	rec = (char *) ft_calloc((size_t) n * n * 10, sizeof(char));
 {
 	char	*rec;
 
-	rec = (char *) ft_calloc((size_t) n * n * 10, sizeof(char));
+	rec = (char *) ft_calloc((size_t) n * log_base2(n) * 5, sizeof(char));
 	if (!rec)
 		return (NULL);
 	return (rec);
