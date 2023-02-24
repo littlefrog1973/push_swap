@@ -6,7 +6,7 @@
 #    By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/11 11:08:07 by sdeeyien          #+#    #+#              #
-#    Updated: 2023/02/06 10:24:03 by sdeeyien         ###   ########.fr        #
+#    Updated: 2023/02/24 11:09:46 by sdeeyien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,8 +75,11 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar -crs $(NAME) $(OBJ)
 
-$(OBJ) : $(SRC)
-	$(CC) $(CFLAGS) $(SRC)
+%.o : %.c
+	$(CC) -c $(CFLAGS) $<
+
+#$(OBJ) : $(SRC)
+#	$(CC) $(CFLAGS) $(SRC)
 
 clean :
 	rm -f *.o
