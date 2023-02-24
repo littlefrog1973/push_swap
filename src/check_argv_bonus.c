@@ -6,7 +6,7 @@
 /*   By: sdeeyien <sukitd@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:06:19 by sdeeyien          #+#    #+#             */
-/*   Updated: 2023/02/23 16:50:55 by sdeeyien         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:15:24 by sdeeyien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,5 @@ int	check_argv(int argc, char **argv)
 		err_exit(1);
 	if (!is_all_digit(argv) || is_overflow(argv) || is_duplicate(argv))
 		err_exit(1);
-//	if (is_sort_char(argv))
-//		return (0);
 	return (1);
 }
